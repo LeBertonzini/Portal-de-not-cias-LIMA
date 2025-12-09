@@ -1,0 +1,660 @@
+/* --- ESTILOS GERAIS --- */
+
+:root {
+    --color-primary: #002147; /* Azul Escuro do Header e Formulário */
+    --color-secondary: #f4f4f4; /* Fundo Levemente Cinza */
+    --color-text-light: #ffffff;
+    --color-text-dark: #333;
+    --font-serif: 'Georgia', serif;
+    --font-sans: 'Arial', sans-serif;
+}
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+body {
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    background-color: var(--color-secondary);
+    color: var(--color-text-dark);
+}
+
+
+
+h1, h2, h3 {
+    font-family: var(--font-serif);
+    color: var(--color-primary);
+    margin-bottom: 0.5em;
+}
+
+
+
+a {
+    text-decoration: none;
+    color: var(--color-primary);
+    transition: color 0.3s ease, opacity 0.3s ease; /* EFEITO SPRINT 3: Transição suave em links */
+}
+
+
+
+/* --- HEADER E NAVEGAÇÃO --- */
+header {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+
+header h1 {
+    color: var(--color-text-light);
+    font-size: 1.8em;
+}
+
+
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+
+
+nav ul li a {
+    color: var(--color-text-light);
+    padding: 0 15px;
+    font-weight: bold;
+    transition: opacity 0.3s;
+}
+
+
+
+nav ul li a:hover {
+    opacity: 0.8;
+}
+
+
+
+/* --- LAYOUT PRINCIPAL (GLOBAL) --- */
+main {
+    padding: 20px 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+
+h2 {
+    text-align: center;
+    margin: 20px 0 30px;
+    font-size: 2em;
+    font-weight: normal;
+}
+
+
+
+/* --- SEÇÃO HERO (INDEX.HTML) --- */
+
+.hero {
+    background-color: var(--color-text-light);
+    padding: 30px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+
+
+.hero h2 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    color: var(--color-primary);
+    text-align: left;
+}
+
+
+
+.hero img {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: cover;
+    margin: 20px 0;
+    border-radius: 6px;
+}
+
+
+
+.btn-leia-mais {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: 10px 20px;
+    margin-top: 15px;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s ease; /* SPRINT 3: Adicionado transform */
+}
+
+
+
+.btn-leia-mais:hover {
+    background-color: #003366;
+    transform: scale(1.05); /* SPRINT 3: Efeito de escala */
+}
+
+
+
+/* --- GRID DE NOTÍCIAS E SIDEBAR (INDEX.HTML) --- */
+.main-content-area {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+}
+
+
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    align-items: stretch;
+}
+
+
+
+.card {
+    background-color: var(--color-text-light);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* SPRINT 3: Transição para hover */
+}
+
+
+
+.card:hover {
+    transform: translateY(-5px); /* SPRINT 3: Move o card para cima */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* SPRINT 3: Aumenta a sombra */
+}
+
+
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+
+
+.card h4 {
+    padding: 15px 15px 5px;
+    font-size: 1.1em;
+    font-weight: bold;
+    height: 60px;
+    overflow: hidden;
+    line-height: 1.2;
+    margin-bottom: 5px;
+}
+
+
+
+.card p {
+    padding: 0 15px 10px;
+    font-size: 0.9em;
+    color: #666;
+    height: 70px;
+    overflow: hidden;
+    line-height: 1.4;
+    flex-grow: 1;
+}
+
+
+
+.card .read-more {
+    display: block;
+    padding: 10px 15px;
+    background-color: #f0f0f0;
+    text-align: right;
+    font-size: 0.9em;
+    font-weight: bold;
+    margin-top: auto;
+    transition: background-color 0.3s ease; /* SPRINT 3: Transição no botão */
+}
+
+
+
+.card .read-more:hover {
+    background-color: #e0e0e0;
+}
+
+
+
+/* --- SIDEBAR (INDEX.HTML) --- */
+.sidebar-info {
+    padding: 20px;
+    background-color: var(--color-text-light);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.sidebar-info h4 {
+    color: var(--color-primary);
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+
+
+.sidebar-info h4:first-child {
+    margin-top: 0;
+
+}
+
+
+
+.category-list, .most-read-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+
+
+.category-list li, .most-read-list li {
+    margin-bottom: 8px;
+}
+
+
+
+.most-read-list li {
+    counter-increment: list-counter;
+    font-size: 0.95em;
+}
+
+
+
+.most-read-list li a {
+    color: var(--color-text-dark);
+}
+
+
+
+.video-container {
+    margin-top: 15px;
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+}
+
+
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+}
+
+/* --- PÁGINA NOTICIA.HTML (ARTIGO COMPLETO) --- */
+/* Cabeçalho principal do site (não interfere no header do artigo) */
+
+header.site-header {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+
+/* Caixa branca da notícia */
+.full-article {
+    background-color: var(--color-text-light);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 10;
+}
+
+
+
+/* HEADER interno da notícia */
+.article-header {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+
+
+.full-article > header {
+    background: transparent !important;
+    color: var(--color-text-dark);
+    padding: 0 !important;
+    margin-bottom: 20px;
+    border: none;
+}
+
+
+
+/* TÍTULO */
+.full-article h2 {
+    font-size: 2.6rem;
+    line-height: 1.2;
+    font-family: var(--font-serif);
+    font-weight: 700;
+    margin: 0;
+    color: var(--color-primary);
+}
+
+
+
+/* SUBTÍTULO */
+.subtitle {
+    font-size: 1.15rem;
+    line-height: 1.5;
+    font-weight: 300;
+    max-width: 750px;
+    color: #555;
+}
+
+
+
+/* INFORMAÇÕES DO AUTOR */
+.meta-info { /* SPRINT 3: Tinha um erro de quebra, corrigido para .meta-info */
+    font-size: 0.9em;
+    color: #777;
+     margin-bottom: 15px;
+     border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+
+
+/* LISTAS DA NOTÍCIA - Garantindo o estilo de bolinhas azuis */
+.full-article ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 2em;
+}
+
+
+
+.full-article ul li {
+    margin-bottom: 12px;
+    padding-left: 1.5em;
+    position: relative;
+    line-height: 1.5;
+    color: var(--color-text-dark);
+}
+
+
+
+.full-article ul li::before {
+    content: "•";
+    color: var(--color-primary);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+
+
+
+
+/* --- PÁGINA CONTATO.HTML (FORMULÁRIO) --- */
+.contact-form-section {
+      background-color: var(--color-text-light);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+
+
+.contact-form h2 {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+
+
+.contact-form fieldset {
+    border: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+
+
+.contact-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--color-primary);
+}
+
+
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"],
+.contact-form select,
+.contact-form textarea {
+
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 5px;
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* SPRINT 3: Transição para focus */
+}
+
+
+
+/* SPRINT 3: Pseudo-classe FOCUS */
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form input[type="tel"]:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    border-color: #4CAF50; /* Cor verde de foco */
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); /* Sombra de foco */
+    outline: none;
+}
+
+
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+
+
+.contact-form small {
+    display: block;
+    margin-top: 5px;
+    color: #888;
+    font-size: 0.85em;
+}
+
+
+
+/* Estilizando o painel de Formulário */
+.contact-form {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: 30px;
+    border-radius: 8px;
+}
+
+
+
+.contact-form label {
+    color: var(--color-text-light);
+}
+
+
+
+/* Botões de Envio */
+.btn-submit, .btn-reset {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+
+
+.btn-reset {
+    background-color: #6c757d;
+}
+
+
+
+.btn-submit:hover {
+    background-color: #0056b3;
+}
+
+
+
+/* TABELAS */
+.info-tables {
+    margin-top: 40px;
+}
+
+
+
+.schedule-table, .audience-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background-color: var(--color-text-light);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+}
+
+
+
+.schedule-table th, .schedule-table td,
+.audience-table th, .audience-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+
+
+.schedule-table th, .audience-table th {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    font-weight: bold;
+}
+
+
+
+/* SPRINT 3: Efeito Zebrado e Hover nas Tabelas */
+.schedule-table tr:nth-child(odd),
+.audience-table tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+
+
+.schedule-table tr:hover,
+.audience-table tr:hover {
+    background-color: #e0e0e0;
+    transition: background-color 0.3s ease;
+}
+
+
+
+
+
+/* --- RODAPÉ (GLOBAL) --- */
+footer {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    text-align: center;
+    padding: 15px 50px;
+    margin-top: 30px;
+}
+
+
+
+/* --- RESPONSIVIDADE BÁSICA (GLOBAL) --- */
+@media (max-width: 768px) {
+    header, main, footer {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+
+
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+
+
+    nav ul {
+        margin-top: 10px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+
+    nav ul li {
+        margin-bottom: 5px;
+    }
+
+   
+
+    .main-content-area {
+        grid-template-columns: 1fr;
+    }
+
+
+
+    /* SPRINT 3: Responsividade do Grid de Notícias */
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+}
